@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invertex IT — Managed IT Services | London, Essex, Kent & Cambridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f8fafc;
+    --bg2:       #ffffff;
+    --surface:   #f1f5f9;
+    --surface2:  #e8f0fe;
+    --border:    #e2e8f0;
+    --border2:   #cbd5e1;
+    --accent:    #1a56db;
+    --accent-light: #eff4ff;
+    --accent2:   #0ea5e9;
+    --accent3:   #10b981;
+    --danger:    #ef4444;
+    --warn:      #f59e0b;
+    --text:      #1e293b;
+    --text2:     #475569;
+    --muted:     #94a3b8;
+    --heading:   #0f172a;
+    --card:      #ffffff;
+    --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+    --shadow:    0 4px 16px rgba(15,23,42,0.08), 0 1px 4px rgba(15,23,42,0.04);
+    --shadow-lg: 0 20px 48px rgba(15,23,42,0.1), 0 4px 12px rgba(15,23,42,0.06);
+    --radius:    14px;
+    --radius-sm: 8px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,h4,h5 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--heading);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    transition: box-shadow 0.3s;
+  }
+
+  nav.scrolled { box-shadow: var(--shadow); }
+
+  .logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--heading);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .logo-in {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    color: white;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 8px 18px !important;
+    font-weight: 600 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.88 !important; background: var(--accent) !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    padding: 120px 48px 80px;
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 40%, rgba(26,86,219,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(14,165,233,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--border) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 80% 80% at 60% 30%, black 20%, transparent 70%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    border: 1px solid rgba(26,86,219,0.2);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 24px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .badge-pulse {
+    width: 7px; height: 7px;
+    background: var(--accent3);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.75)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+  .hero-left h1 {
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    animation: fadeUp 0.5s 0.1s ease both;
+    color: var(--heading);
+  }
+
+  .hero-left h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-left p {
+    font-size: 1.1rem;
+    color: var(--text2);
+    max-width: 480px;
+    margin-bottom: 36px;
+    font-weight: 400;
+    line-height: 1.7;
+    animation: fadeUp 0.5s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    animation: fadeUp 0.5s 0.3s ease both;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 4px 14px rgba(26,86,219,0.3);
+  }
+
+  .btn-primary:hover {
+    background: #1447c0;
+    box-shadow: 0 6px 20px rgba(26,86,219,0.35);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    background: white;
+    color: var(--text);
+    border: 1.5px solid var(--border2);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    animation: fadeUp 0.5s 0.4s ease both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding-right: 32px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat:last-child { border-right: none; padding-right: 0; }
+
+  .stat-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label { font-size: 0.78rem; color: var(--muted); font-weight: 500; margin-top: 2px; }
+
+  /* ─── DASHBOARD CARD ─── */
+  .hero-dashboard {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .dash-topbar {
+    background: var(--heading);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dash-topbar-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent3);
+  }
+
+  .live-dot {
+    width: 6px; height: 6px;
+    background: var(--accent3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .dash-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dash-metric {
+    background: white;
+    padding: 16px 20px;
+  }
+
+  .dash-metric-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .dash-metric-val {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--heading);
+  }
+
+  .dash-metric-val.green { color: var(--accent3); }
+  .dash-metric-val.blue { color: var(--accent); }
+
+  .dash-log { padding: 12px 20px; display: flex; flex-direction: column; gap: 8px; }
+
+  .log-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: 0.78rem;
+    color: var(--text2);
+  }
+
+  .log-icon { flex-shrink: 0; }
+
+  /* ─── TICKER ─── */
+  .partners-bar {
+    background: white;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .partners-bar::before,
+  .partners-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .partners-bar::before { left: 0; background: linear-gradient(to right, white, transparent); }
+  .partners-bar::after { right: 0; background: linear-gradient(to left, white, transparent); }
+
+  .partners-label {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text2);
+    white-space: nowrap;
+  }
+
+  .ticker-item .ti { font-size: 1rem; }
+
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 96px 48px; }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: var(--heading);
+    margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text2);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--bg); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow);
+    border-color: rgba(26,86,219,0.2);
+    transform: translateY(-2px);
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover::after { opacity: 1; }
+
+  .service-icon-wrap {
+    width: 48px; height: 48px;
+    background: var(--accent-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .service-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--heading);
+  }
+
+  .service-card > p {
+    font-size: 0.84rem;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .service-tags { display: flex; flex-direction: column; gap: 4px; }
+
+  .service-tag {
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .service-tag::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--accent2);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── HEALTH CHECK ─── */
+  #health-check { background: white; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+
+  .checks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .check-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .check-card:hover { border-color: rgba(26,86,219,0.25); background: var(--accent-light); }
+
+  .check-card .ci { font-size: 1.4rem; margin-bottom: 10px; }
+  .check-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+  .check-card p { font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
+
+  /* ─── REPORT CARD ─── */
+  .report-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .report-head {
+    background: var(--heading);
+    color: white;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .report-head h4 { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  .score-wrap { display: flex; align-items: baseline; gap: 3px; }
+  .score-big { font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 800; color: #f59e0b; }
+  .score-small { font-size: 0.9rem; color: rgba(255,255,255,0.4); }
+
+  .report-risk-bar {
+    padding: 10px 24px;
+    background: #fef9ec;
+    border-bottom: 1px solid #fde68a;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .report-rows { padding: 4px 0; }
+
+  .report-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 24px;
+    border-bottom: 1px solid var(--bg);
+    font-size: 0.875rem;
+  }
+
+  .report-row:last-child { border-bottom: none; }
+  .report-row .label { color: var(--text); }
+
+  .r-pass { color: var(--accent3); font-weight: 700; font-size: 0.8rem; }
+  .r-warn { color: var(--warn); font-weight: 700; font-size: 0.8rem; }
+  .r-fail { color: var(--danger); font-weight: 700; font-size: 0.8rem; }
+
+  .report-footer {
+    padding: 20px 24px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .report-footer p { font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+
+  /* ─── SPEND REVIEW ─── */
+  #spend-review { background: var(--bg); }
+
+  .spend-items { display: flex; flex-direction: column; gap: 14px; }
+
+  .spend-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .spend-item:hover { border-color: rgba(26,86,219,0.2); transform: translateX(3px); }
+
+  .spend-item .si { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+  .spend-item h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 3px; }
+  .spend-item p { font-size: 0.78rem; color: var(--text2); line-height: 1.4; }
+
+  /* Analysis card */
+  .analysis-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .analysis-head {
+    padding: 16px 22px;
+    background: var(--heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .analysis-row {
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--bg);
+  }
+
+  .ar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
+  .ar-name { font-size: 0.875rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 6px; }
+  .ar-amount { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--heading); }
+  .ar-note { font-size: 0.75rem; color: var(--warn); }
+  .ar-note.ok { color: var(--accent3); }
+
+  .analysis-summary {
+    padding: 18px 22px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .sum-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 0.875rem;
+  }
+
+  .sum-label { color: var(--text2); }
+  .sum-val { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--text); }
+
+  .sum-highlight {
+    margin-top: 10px;
+    padding: 14px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sum-highlight .label { font-size: 0.85rem; font-weight: 600; color: #065f46; }
+  .sum-highlight .amount { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--accent3); }
+
+  /* ─── COVERAGE ─── */
+  #coverage { background: white; }
+
+  .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+
+  .region-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .region-card:hover {
+    border-color: rgba(26,86,219,0.25);
+    background: var(--accent-light);
+    transform: translateY(-2px);
+  }
+
+  .region-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .region-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
+  .region-card p { font-size: 0.8rem; color: var(--text2); }
+
+  .map-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--border2) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .map-glow {
+    position: absolute;
+    width: 280px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,86,219,0.08) 0%, transparent 70%);
+    top: 50%; left: 55%;
+    transform: translate(-50%, -50%);
+  }
+
+  .map-ring {
+    position: absolute;
+    width: 220px; height: 180px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(26,86,219,0.2);
+    top: 50%; left: 55%;
+    transform: translate(-50%, -50%);
+  }
+
+  .map-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .map-pins {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .map-pin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pin-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(26,86,219,0.15);
+  }
+
+  .pin-dot.hq {
+    background: var(--accent3);
+    box-shadow: 0 0 0 4px rgba(16,185,129,0.2);
+    animation: pulse 2s infinite;
+  }
+
+  .pin-label { font-size: 0.68rem; font-weight: 600; color: var(--text2); }
+  .pin-label.hq { color: var(--accent3); }
+
+  .map-title { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+  .map-sub { font-size: 0.75rem; color: var(--muted); }
+
+  /* ─── WHY US ─── */
+  #about { background: var(--bg); }
+
+  .why-points { display: flex; flex-direction: column; gap: 0; }
+
+  .why-point {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why-point:last-child { border-bottom: none; }
+
+  .why-num {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    border: 1px solid rgba(26,86,219,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .why-point h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+  .why-point p { font-size: 0.875rem; color: var(--text2); line-height: 1.65; }
+
+  .sla-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .sla-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .sla-header h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text2);
+  }
+
+  .sla-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--bg);
+    font-size: 0.875rem;
+    transition: background 0.15s;
+  }
+
+  .sla-row:hover { background: var(--bg); }
+  .sla-row:last-child { border-bottom: none; }
+  .sla-label { color: var(--text2); }
+  .sla-value { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+
+  /* ─── PRICING ─── */
+  #plans { background: white; }
+
+  .pricing-wrap { text-align: center; }
+  .pricing-sub { font-size: 1.05rem; color: var(--text2); max-width: 420px; margin: 0 auto 52px; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: left;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    position: relative;
+  }
+
+  .price-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+
+  .price-card.featured {
+    background: var(--heading);
+    border-color: var(--heading);
+    color: white;
+  }
+
+  .price-card.featured h3,
+  .price-card.featured h2,
+  .price-card.featured p { color: rgba(255,255,255,0.9); }
+
+  .price-card.featured .plan-label { color: #93c5fd; }
+
+  .featured-badge {
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 16px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .plan-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .plan-price { display: flex; align-items: baseline; gap: 3px; margin-bottom: 3px; }
+
+  .price-sym { font-size: 1.4rem; font-weight: 700; color: var(--muted); margin-top: 6px; }
+  .price-sym.white { color: rgba(255,255,255,0.4); }
+
+  .price-main {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--heading);
+    letter-spacing: -0.03em;
+  }
+
+  .price-main.white { color: white; }
+  .price-main.bespoke { font-size: 1.8rem; }
+
+  .price-per { font-size: 0.8rem; color: var(--muted); margin-bottom: 24px; }
+  .price-per.white { color: rgba(255,255,255,0.4); }
+
+  .plan-divider { height: 1px; background: var(--border); margin: 18px 0; }
+  .plan-divider.light { background: rgba(255,255,255,0.12); }
+
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+
+  .plan-features li {
+    font-size: 0.84rem;
+    color: var(--text2);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .plan-features li.white { color: rgba(255,255,255,0.75); }
+  .plan-features li::before { content: '✓'; color: var(--accent3); font-weight: 700; flex-shrink: 0; }
+  .plan-features li.white::before { color: #6ee7b7; }
+
+  .plan-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .plan-btn.dark { background: var(--heading); color: white; }
+  .plan-btn.dark:hover { background: #1e40af; }
+
+  .plan-btn.white-btn {
+    background: white;
+    color: var(--heading);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .plan-btn.white-btn:hover { background: #f1f5f9; }
+
+  .plan-btn.outline { border: 1.5px solid var(--border2); color: var(--text); }
+  .plan-btn.outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--bg); }
+
+  .testi-wrap { text-align: center; }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .testi-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .testi-card:hover { box-shadow: var(--shadow); border-color: rgba(26,86,219,0.15); }
+
+  .stars { color: #f59e0b; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 14px; }
+
+  .testi-text {
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+
+  .author-av {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .author-name { font-size: 0.875rem; font-weight: 700; margin-bottom: 2px; }
+  .author-role { font-size: 0.75rem; color: var(--muted); }
+
+  /* ─── CTA ─── */
+  #contact {
+    background: var(--heading);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,86,219,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 50%, rgba(14,165,233,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  #contact .container { position: relative; text-align: center; }
+
+  #contact .section-eyebrow { color: #93c5fd; }
+  #contact .section-eyebrow::before { background: #93c5fd; }
+
+  #contact h2 { color: white; font-size: clamp(2rem, 3.5vw, 3rem); }
+  #contact p { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+
+  .btn-white {
+    background: white;
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  .btn-white:hover { background: #f1f5f9; }
+
+  .btn-ghost {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+
+  .contact-row { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: white; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: white;
+    border-top: 1px solid var(--border);
+    padding: 56px 48px 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand p {
+    font-size: 0.875rem;
+    color: var(--text2);
+    margin-top: 12px;
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer-contact { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+
+  .footer-contact a {
+    font-size: 0.8rem;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-contact a:hover { color: var(--accent); }
+
+  .footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+  .footer-col ul li a {
+    font-size: 0.875rem;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cert-row { display: flex; gap: 10px; }
+
+  .cert-pill {
+    background: var(--accent-light);
+    border: 1px solid rgba(26,86,219,0.2);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1100px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-dashboard { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 72px 20px; }
+    #hero { padding: 100px 20px 60px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .two-col, .coverage-grid-layout { grid-template-columns: 1fr; gap: 36px; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    footer { padding: 40px 20px 24px; }
+  }
+
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .checks-grid { grid-template-columns: 1fr; }
+    .coverage-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 20px; flex-wrap: wrap; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo"><span class="logo-in">In</span>vertex IT</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#health-check">Free Health Check</a></li>
+    <li><a href="#spend-review">IT Audit</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#plans">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Get Support</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+
+  <div class="hero-inner container">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        SE London &amp; Essex — All systems operational
+      </div>
+
+      <h1>IT that works.<br><em>So you don't have to.</em></h1>
+
+      <p>Invertex IT delivers enterprise-grade managed technology services to businesses across London, Essex, Kent and Cambridge. Proactive support, ironclad security, zero downtime.</p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book a Free Consultation →</a>
+        <a href="#health-check" class="btn btn-outline">Get Your Free IT Report</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">99.9%</span>
+          <span class="stat-label">Uptime guarantee</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1 hr</span>
+          <span class="stat-label">Response SLA</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Years experience</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="hero-dashboard">
+      <div class="dash-topbar">
+        <span class="dash-topbar-title">Network Dashboard</span>
+        <span class="live-indicator"><span class="live-dot"></span>Live</span>
+      </div>
+      <div class="dash-metrics">
+        <div class="dash-metric">
+          <div class="dash-metric-label">Uptime (30d)</div>
+          <div class="dash-metric-val green">99.97%</div>
+        </div>
+        <div class="dash-metric">
+          <div class="dash-metric-label">Open incidents</div>
+          <div class="dash-metric-val">0</div>
+        </div>
+        <div class="dash-metric">
+          <div class="dash-metric-label">Avg response</div>
+          <div class="dash-metric-val blue">42 min</div>
+        </div>
+        <div class="dash-metric">
+          <div class="dash-metric-label">Threat status</div>
+          <div class="dash-metric-val green">Clean</div>
+        </div>
+      </div>
+      <div class="dash-log">
+        <div class="log-row"><span class="log-icon">✅</span><span>Backup completed — 3 sites · 2 mins ago</span></div>
+        <div class="log-row"><span class="log-icon">🔒</span><span>Security patches applied — 24 endpoints</span></div>
+        <div class="log-row"><span class="log-icon">⚡</span><span>Scheduled maintenance — Sunday 02:00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS BAR -->
+<div class="partners-bar">
+  <div class="partners-label">Technology Partners &amp; Vendors</div>
+  <div style="overflow:hidden;position:relative;">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ti">🪟</span> Microsoft 365</div>
+      <div class="ticker-item"><span class="ti">☁️</span> Azure Cloud</div>
+      <div class="ticker-item"><span class="ti">🌐</span> Cisco Meraki</div>
+      <div class="ticker-item"><span class="ti">🛡️</span> Sophos</div>
+      <div class="ticker-item"><span class="ti">💾</span> Veeam</div>
+      <div class="ticker-item"><span class="ti">🔄</span> Datto</div>
+      <div class="ticker-item"><span class="ti">🔬</span> SentinelOne</div>
+      <div class="ticker-item"><span class="ti">🤖</span> NVIDIA AI</div>
+      <div class="ticker-item"><span class="ti">🔥</span> Fortinet</div>
+      <div class="ticker-item"><span class="ti">📧</span> Mimecast</div>
+      <div class="ticker-item"><span class="ti">🖥️</span> Dell Technologies</div>
+      <div class="ticker-item"><span class="ti">🖨️</span> HP Enterprise</div>
+      <div class="ticker-item"><span class="ti">🪟</span> Microsoft 365</div>
+      <div class="ticker-item"><span class="ti">☁️</span> Azure Cloud</div>
+      <div class="ticker-item"><span class="ti">🌐</span> Cisco Meraki</div>
+      <div class="ticker-item"><span class="ti">🛡️</span> Sophos</div>
+      <div class="ticker-item"><span class="ti">💾</span> Veeam</div>
+      <div class="ticker-item"><span class="ti">🔄</span> Datto</div>
+      <div class="ticker-item"><span class="ti">🔬</span> SentinelOne</div>
+      <div class="ticker-item"><span class="ti">🤖</span> NVIDIA AI</div>
+      <div class="ticker-item"><span class="ti">🔥</span> Fortinet</div>
+      <div class="ticker-item"><span class="ti">📧</span> Mimecast</div>
+      <div class="ticker-item"><span class="ti">🖥️</span> Dell Technologies</div>
+      <div class="ticker-item"><span class="ti">🖨️</span> HP Enterprise</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Complete IT, covered end-to-end.</h2>
+    <p class="section-sub">From day-to-day helpdesk to long-term infrastructure strategy — Invertex handles every layer of your technology stack, including AI and custom software.</p>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon-wrap">🛡️</div>
+        <h3>Cybersecurity</h3>
+        <p>Multi-layered protection including endpoint detection, email security, phishing simulation, and 24/7 threat monitoring.</p>
+        <div class="service-tags">
+          <span class="service-tag">EDR &amp; Antivirus (SentinelOne)</span>
+          <span class="service-tag">Email filtering &amp; anti-phishing</span>
+          <span class="service-tag">Security awareness training</span>
+          <span class="service-tag">Dark web monitoring</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">☁️</div>
+        <h3>Cloud Services</h3>
+        <p>Microsoft 365 management, Azure infrastructure, cloud migrations, and hybrid working solutions tailored to your team.</p>
+        <div class="service-tags">
+          <span class="service-tag">Microsoft 365 management</span>
+          <span class="service-tag">Azure cloud hosting</span>
+          <span class="service-tag">Cloud migration &amp; strategy</span>
+          <span class="service-tag">SharePoint &amp; Teams setup</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🔧</div>
+        <h3>Managed IT Support</h3>
+        <p>Unlimited helpdesk support, proactive monitoring, and on-site visits. We become your dedicated IT team.</p>
+        <div class="service-tags">
+          <span class="service-tag">Unlimited helpdesk tickets</span>
+          <span class="service-tag">Proactive remote monitoring</span>
+          <span class="service-tag">On-site engineer visits</span>
+          <span class="service-tag">New user onboarding</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🌐</div>
+        <h3>Network &amp; Infrastructure</h3>
+        <p>Business-grade network design, managed WiFi, VPN solutions, and switching for offices of any size.</p>
+        <div class="service-tags">
+          <span class="service-tag">Cisco Meraki managed WiFi</span>
+          <span class="service-tag">SD-WAN &amp; connectivity</span>
+          <span class="service-tag">VPN &amp; remote access</span>
+          <span class="service-tag">Network security audits</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">💾</div>
+        <h3>Backup &amp; Disaster Recovery</h3>
+        <p>Automated, encrypted backups with rapid restore SLAs. Protect your business from ransomware and data loss.</p>
+        <div class="service-tags">
+          <span class="service-tag">Daily automated backups</span>
+          <span class="service-tag">Offsite &amp; cloud replication</span>
+          <span class="service-tag">Ransomware-proof storage</span>
+          <span class="service-tag">RTO under 4 hours</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">📋</div>
+        <h3>IT Consultancy</h3>
+        <p>Strategic technology roadmaps, software procurement, vendor management, and IT project delivery.</p>
+        <div class="service-tags">
+          <span class="service-tag">Technology roadmapping</span>
+          <span class="service-tag">Software licensing &amp; procurement</span>
+          <span class="service-tag">Compliance &amp; GDPR advisory</span>
+          <span class="service-tag">Digital transformation</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🌍</div>
+        <h3>Website Development</h3>
+        <p>Professional, high-performance websites and web apps built to convert visitors and represent your brand with confidence.</p>
+        <div class="service-tags">
+          <span class="service-tag">Bespoke design &amp; development</span>
+          <span class="service-tag">CMS integration (WordPress, Webflow)</span>
+          <span class="service-tag">SEO-ready &amp; mobile-first</span>
+          <span class="service-tag">Hosting, SSL &amp; maintenance</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🤖</div>
+        <h3>AI Servers &amp; Infrastructure</h3>
+        <p>On-premise and cloud AI compute infrastructure — GPU servers, private model hosting, and AI deployments for data sovereignty.</p>
+        <div class="service-tags">
+          <span class="service-tag">GPU server specification &amp; supply</span>
+          <span class="service-tag">Private LLM &amp; model hosting</span>
+          <span class="service-tag">On-prem AI compute clusters</span>
+          <span class="service-tag">AI infrastructure monitoring</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">⚙️</div>
+        <h3>Application Development</h3>
+        <p>Custom software and AI-powered applications built to automate workflows, solve business problems, and give your team an edge.</p>
+        <div class="service-tags">
+          <span class="service-tag">Bespoke business software</span>
+          <span class="service-tag">AI &amp; automation integrations</span>
+          <span class="service-tag">API development &amp; integrations</span>
+          <span class="service-tag">Legacy system modernisation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE HEALTH CHECK -->
+<section id="health-check">
+  <div class="container">
+    <div class="section-eyebrow">No Sales Pitch. No Obligation.</div>
+    <h2 class="section-title">Your IT, under the microscope. For free.</h2>
+    <p class="section-sub">We do the actual work: scan your network, audit your security posture, and hand you a plain-English report with real findings — whether you work with us or not.</p>
+
+    <div class="two-col">
+      <div class="checks-grid reveal">
+        <div class="check-card">
+          <div class="ci">🔐</div>
+          <h4>Cyber Security Posture</h4>
+          <p>Unpatched software, open ports, weak passwords, MFA gaps, and phishing susceptibility — all assessed.</p>
+        </div>
+        <div class="check-card">
+          <div class="ci">💾</div>
+          <h4>Backup Integrity &amp; Recovery</h4>
+          <p>We verify whether your backups actually work and how quickly you could recover from ransomware.</p>
+        </div>
+        <div class="check-card">
+          <div class="ci">📧</div>
+          <h4>Email &amp; Identity Security</h4>
+          <p>SPF, DKIM, DMARC and Microsoft 365 configuration — we check if your email domain is impersonation-proof.</p>
+        </div>
+        <div class="check-card">
+          <div class="ci">🌐</div>
+          <h4>Network &amp; Firewall Review</h4>
+          <p>Rogue devices, misconfigured routers, guest network exposure and internet perimeter fitness.</p>
+        </div>
+        <div class="check-card">
+          <div class="ci">📊</div>
+          <h4>Compliance &amp; Risk Score</h4>
+          <p>We map your IT against Cyber Essentials controls and deliver a risk score with prioritised fixes.</p>
+        </div>
+        <div class="check-card">
+          <div class="ci">🖥️</div>
+          <h4>Endpoint &amp; Patch Status</h4>
+          <p>Every managed device audited for OS currency, antivirus, encryption status and policy compliance.</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="report-card">
+          <div class="report-head">
+            <h4>Sample IT Health Report</h4>
+            <div class="score-wrap">
+              <span class="score-big">72</span>
+              <span class="score-small">/ 100</span>
+            </div>
+          </div>
+          <div class="report-risk-bar">⚠ Moderate Risk — Security risk level</div>
+          <div class="report-rows">
+            <div class="report-row"><span class="label">MFA Enabled (M365)</span><span class="r-pass">✓ Pass</span></div>
+            <div class="report-row"><span class="label">DMARC Configured</span><span class="r-pass">✓ Pass</span></div>
+            <div class="report-row"><span class="label">Backup tested (30d)</span><span class="r-warn">⚠ Warning</span></div>
+            <div class="report-row"><span class="label">Endpoint encryption</span><span class="r-warn">⚠ Partial</span></div>
+            <div class="report-row"><span class="label">Firewall patched</span><span class="r-fail">✗ Out of date</span></div>
+            <div class="report-row"><span class="label">Admin account hygiene</span><span class="r-fail">✗ Fail</span></div>
+          </div>
+          <div class="report-footer">
+            <p>Delivered within 5 working days. No strings attached. Just the truth about your IT.</p>
+            <a href="tel:07444783774" class="btn btn-primary" style="display:inline-flex;justify-content:center;width:100%">📞 Book Your Free Audit — 07444 783774</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEND REVIEW -->
+<section id="spend-review">
+  <div class="container">
+    <div class="section-eyebrow">Stop Overpaying for IT</div>
+    <h2 class="section-title">We'll prove it.</h2>
+    <p class="section-sub">We dig through every line item, every contract, every licence, and hand you a detailed report showing exactly where your money goes and how much you could save.</p>
+
+    <div class="two-col">
+      <div class="spend-items reveal">
+        <div class="spend-item">
+          <span class="si">📄</span>
+          <div>
+            <h4>Software Licences &amp; Subscriptions</h4>
+            <p>Every active licence across Microsoft, Adobe, SaaS tools — identifying duplicates, unused seats, and overpriced tiers.</p>
+          </div>
+        </div>
+        <div class="spend-item">
+          <span class="si">🌐</span>
+          <div>
+            <h4>Connectivity &amp; Telecoms</h4>
+            <p>Broadband, leased lines, mobile contracts — benchmarked against current market rates to flag overspend.</p>
+          </div>
+        </div>
+        <div class="spend-item">
+          <span class="si">☁️</span>
+          <div>
+            <h4>Cloud &amp; Hosting Costs</h4>
+            <p>Idle resources, orphaned VMs, unoptimised storage tiers, and over-provisioned compute burning money.</p>
+          </div>
+        </div>
+        <div class="spend-item">
+          <span class="si">🔧</span>
+          <div>
+            <h4>Support &amp; Maintenance Contracts</h4>
+            <p>We review what your MSP contracts actually cover vs. what you're paying. Many businesses pay for SLAs they never use.</p>
+          </div>
+        </div>
+        <div class="spend-item">
+          <span class="si">🖥️</span>
+          <div>
+            <h4>Hardware Refresh &amp; Leasing</h4>
+            <p>Hardware estate vs refresh cycles — end-of-life risks identified and buy vs. lease economics compared.</p>
+          </div>
+        </div>
+        <div class="spend-item">
+          <span class="si">🔐</span>
+          <div>
+            <h4>Security Tooling Overlap</h4>
+            <p>We map your full security stack, identify duplication, and show where consolidation saves money without compromising protection.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="analysis-card">
+          <div class="analysis-head">Sample IT Spend Analysis — 45-person business, London</div>
+          <div class="analysis-row">
+            <div class="ar-top">
+              <span class="ar-name">☁️ Microsoft 365 Licences</span>
+              <span class="ar-amount">£1,890/mo</span>
+            </div>
+            <div class="ar-note">⚠ 14 unused E3 seats — potential saving: £420/mo</div>
+          </div>
+          <div class="analysis-row">
+            <div class="ar-top">
+              <span class="ar-name">🌐 Broadband &amp; Leased Line</span>
+              <span class="ar-amount">£680/mo</span>
+            </div>
+            <div class="ar-note">⚠ Out-of-contract rate — market equivalent: £390/mo</div>
+          </div>
+          <div class="analysis-row">
+            <div class="ar-top">
+              <span class="ar-name">🔧 MSP Support Contract</span>
+              <span class="ar-amount">£3,200/mo</span>
+            </div>
+            <div class="ar-note">⚠ No SLA enforcement — comparable service: £1,800/mo</div>
+          </div>
+          <div class="analysis-row">
+            <div class="ar-top">
+              <span class="ar-name">☁️ Azure Cloud Hosting</span>
+              <span class="ar-amount">£940/mo</span>
+            </div>
+            <div class="ar-note">⚠ 3 idle VMs + unoptimised storage — saving: £310/mo</div>
+          </div>
+          <div class="analysis-row">
+            <div class="ar-top">
+              <span class="ar-name">🔐 Security Tools (5 vendors)</span>
+              <span class="ar-amount">£580/mo</span>
+            </div>
+            <div class="ar-note ok">✓ Reasonable — minor overlap identified</div>
+          </div>
+          <div class="analysis-summary">
+            <div class="sum-row">
+              <span class="sum-label">Current monthly IT spend</span>
+              <span class="sum-val">£7,290/mo</span>
+            </div>
+            <div class="sum-row">
+              <span class="sum-label">Optimised monthly spend</span>
+              <span class="sum-val">£5,040/mo</span>
+            </div>
+            <div class="sum-highlight">
+              <span class="label">Annual saving identified</span>
+              <span class="amount">£26,990 / yr</span>
+            </div>
+            <a href="tel:07444783774" class="btn btn-primary" style="display:inline-flex;justify-content:center;width:100%;margin-top:16px;">📞 Book Free IT Spend Review</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage">
+  <div class="container">
+    <div class="section-eyebrow">Service Area</div>
+    <h2 class="section-title">Serving South East England.</h2>
+    <p class="section-sub">Invertex IT provides on-site and remote managed services across four key regions — with engineers ready to deploy fast.</p>
+
+    <div class="two-col coverage-grid-layout">
+      <div class="reveal">
+        <div class="coverage-grid">
+          <div class="region-card">
+            <div class="region-icon">🏙️</div>
+            <h3>London</h3>
+            <p>City, West End &amp; surrounding boroughs</p>
+          </div>
+          <div class="region-card">
+            <div class="region-icon">🌳</div>
+            <h3>Essex</h3>
+            <p>Headquarters in Upminster</p>
+          </div>
+          <div class="region-card">
+            <div class="region-icon">⚓</div>
+            <h3>Kent</h3>
+            <p>Covering the Garden of England</p>
+          </div>
+          <div class="region-card">
+            <div class="region-icon">🎓</div>
+            <h3>Cambridge</h3>
+            <p>Tech corridor &amp; university city</p>
+          </div>
+        </div>
+        <p style="font-size:0.875rem;color:var(--text2);margin-top:12px;">Not in these areas? Remote support available nationwide. <a href="#contact" style="color:var(--accent);text-decoration:none;font-weight:600;">Get in touch →</a></p>
+      </div>
+
+      <div class="map-card reveal reveal-delay-1">
+        <div class="map-bg-dots"></div>
+        <div class="map-glow"></div>
+        <div class="map-ring"></div>
+        <div class="map-content">
+          <div class="map-title">Invertex Coverage Zone</div>
+          <div class="map-sub" style="margin-bottom:16px;">London · Essex · Kent · Cambridge</div>
+          <div class="map-pins">
+            <div class="map-pin"><div class="pin-dot"></div><div class="pin-label">London</div></div>
+            <div class="map-pin"><div class="pin-dot hq"></div><div class="pin-label hq">⭐ HQ Upminster</div></div>
+            <div class="map-pin"><div class="pin-dot"></div><div class="pin-label">Kent</div></div>
+            <div class="map-pin"><div class="pin-dot"></div><div class="pin-label">Cambridge</div></div>
+          </div>
+          <div class="map-sub">~100 miles coverage radius</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow">Why Invertex</div>
+    <h2 class="section-title">IT partnership, not just a vendor.</h2>
+
+    <div class="two-col">
+      <div class="why-points reveal">
+        <div class="why-point">
+          <div class="why-num">01</div>
+          <div>
+            <h3>Proactive, not reactive</h3>
+            <p>We monitor your systems 24/7 and fix problems before you notice them. Our RMM tooling flags issues the moment they arise — you never have to raise a ticket for something we should have caught.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">02</div>
+          <div>
+            <h3>Transparent flat-rate pricing</h3>
+            <p>No surprise bills. No per-ticket charges. Simple per-user monthly pricing that scales with your team and gives you complete budget certainty, month after month.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">03</div>
+          <div>
+            <h3>A named engineer, not a ticket queue</h3>
+            <p>Every client gets a dedicated account engineer who knows your setup inside out. You call them directly — no scripted first-line support, no repeating yourself every time.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">04</div>
+          <div>
+            <h3>Security-first approach</h3>
+            <p>Cybersecurity is baked into every service we offer. From MFA rollouts to zero-trust frameworks, we keep your data and reputation safe — as standard, not as an add-on.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="sla-card">
+          <div class="sla-header"><h3>Our Service Level Agreement</h3></div>
+          <div class="sla-row"><span class="sla-label">Critical issue response</span><span class="sla-value">1 hr</span></div>
+          <div class="sla-row"><span class="sla-label">Standard ticket response</span><span class="sla-value">4 hrs</span></div>
+          <div class="sla-row"><span class="sla-label">On-site engineer SLA</span><span class="sla-value">Next day</span></div>
+          <div class="sla-row"><span class="sla-label">System uptime guarantee</span><span class="sla-value">99.9%</span></div>
+          <div class="sla-row"><span class="sla-label">Support availability</span><span class="sla-value">24 / 7</span></div>
+          <div class="sla-row"><span class="sla-label">Disaster recovery RTO</span><span class="sla-value">&lt; 4 hrs</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="plans">
+  <div class="container">
+    <div class="pricing-wrap">
+      <div class="section-eyebrow" style="justify-content:center">Pricing</div>
+      <h2 class="section-title">Simple, per-user plans.</h2>
+      <p class="pricing-sub">No hidden fees. No long-term lock-in. Scale up or down as your team grows.</p>
+    </div>
+
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="plan-label">Essential</div>
+        <div class="plan-price">
+          <span class="price-sym">£</span>
+          <span class="price-main">25</span>
+        </div>
+        <div class="price-per">per user / month</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Helpdesk support (business hours)</li>
+          <li>Remote monitoring &amp; management</li>
+          <li>Antivirus &amp; patch management</li>
+          <li>Microsoft 365 support</li>
+          <li>Monthly health reports</li>
+        </ul>
+        <a href="#contact" class="plan-btn outline">Get Started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="plan-label">Professional</div>
+        <div class="plan-price">
+          <span class="price-sym white">£</span>
+          <span class="price-main white">45</span>
+        </div>
+        <div class="price-per white">per user / month</div>
+        <div class="plan-divider light"></div>
+        <ul class="plan-features">
+          <li class="white">Everything in Essential</li>
+          <li class="white">24/7 helpdesk support</li>
+          <li class="white">Dedicated account engineer</li>
+          <li class="white">Advanced endpoint security</li>
+          <li class="white">Cloud backup (1TB)</li>
+          <li class="white">On-site visits (8/year)</li>
+          <li class="white">Email security &amp; filtering</li>
+        </ul>
+        <a href="#contact" class="plan-btn white-btn">Get Started</a>
+      </div>
+
+      <div class="price-card">
+        <div class="plan-label">Enterprise</div>
+        <div class="plan-price">
+          <span class="price-main bespoke">Bespoke</span>
+        </div>
+        <div class="price-per">tailored to your organisation</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Everything in Professional</li>
+          <li>Unlimited on-site visits</li>
+          <li>vCIO &amp; IT strategic planning</li>
+          <li>Custom SLA agreements</li>
+          <li>Multi-site management</li>
+          <li>SOC monitoring &amp; SIEM</li>
+          <li>Compliance &amp; Cyber Essentials</li>
+        </ul>
+        <a href="#contact" class="plan-btn dark">Talk to Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testi-wrap">
+      <div class="section-eyebrow" style="justify-content:center">Client Stories</div>
+      <h2 class="section-title">Trusted across the South East.</h2>
+      <p class="pricing-sub" style="margin-bottom:48px">Real feedback from businesses we've transformed.</p>
+    </div>
+
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Invertex transformed our IT from a constant headache into something we simply don't think about anymore. Response times are incredible and they really understand our business."</p>
+        <div class="testi-author">
+          <div class="author-av">JH</div>
+          <div>
+            <div class="author-name">James Hartley</div>
+            <div class="author-role">MD, Hartley Construction — Essex</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"After a ransomware scare with our old IT firm, we moved to Invertex. The security overhaul they delivered gave us confidence we had never had before. Highly recommend."</p>
+        <div class="testi-author">
+          <div class="author-av">SR</div>
+          <div>
+            <div class="author-name">Sarah Reynolds</div>
+            <div class="author-role">Operations Director, FinServ Ltd — London</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The team feels like part of our company. They migrated us to Azure with zero downtime and our hybrid working setup has never been smoother. Worth every penny."</p>
+        <div class="testi-author">
+          <div class="author-av">MK</div>
+          <div>
+            <div class="author-name">Mark Keane</div>
+            <div class="author-role">CEO, Keane Logistics — Kent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="container">
+    <div class="section-eyebrow" style="justify-content:center">Ready to get started?</div>
+    <h2 class="section-title" style="text-align:center;color:white;margin-bottom:12px;">Book your free 30-minute call.</h2>
+    <p>Find out how Invertex IT can protect and power your business. No commitment, no sales pressure — just a real conversation.</p>
+
+    <div class="cta-btns">
+      <a href="tel:07444783774" class="btn btn-white">📞 Call: 07444 783774</a>
+      <a href="mailto:hello@invertex.co.uk" class="btn btn-ghost">✉ hello@invertex.co.uk</a>
+    </div>
+
+    <div class="contact-row">
+      <a href="tel:07444783774" class="contact-link">📞 07444 783774</a>
+      <a href="mailto:hello@invertex.co.uk" class="contact-link">✉ hello@invertex.co.uk</a>
+      <span class="contact-link">📍 Upminster, Essex, UK</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-in">In</span>vertex IT</a>
+        <p>Managed IT services for growing businesses across London, Essex, Kent and Cambridge. Proactive support, real engineers, zero faff.</p>
+        <div class="footer-contact">
+          <a href="tel:07444783774">📞 07444 783774</a>
+          <a href="mailto:hello@invertex.co.uk">✉ hello@invertex.co.uk</a>
+          <span style="color:var(--muted);font-size:0.8rem;display:flex;align-items:center;gap:6px;">📍 Upminster, Essex, UK</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Managed IT Support</a></li>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#services">Cloud Services</a></li>
+          <li><a href="#services">Backup &amp; DR</a></li>
+          <li><a href="#services">Network Infrastructure</a></li>
+          <li><a href="#services">IT Consultancy</a></li>
+          <li><a href="#services">Website Development</a></li>
+          <li><a href="#services">AI Servers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">Our Team</a></li>
+          <li><a href="#about">Partners</a></li>
+          <li><a href="#contact">Careers</a></li>
+          <li><a href="#contact">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="#coverage">London</a></li>
+          <li><a href="#coverage">Essex</a></li>
+          <li><a href="#coverage">Kent</a></li>
+          <li><a href="#coverage">Cambridge</a></li>
+        </ul>
+        <h4 style="margin-top:20px">Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Invertex IT Ltd. All rights reserved. Company No. 12345678. Registered in England &amp; Wales.</span>
+      <div class="cert-row">
+        <span class="cert-pill">ICO Registered</span>
+        <span class="cert-pill">Cyber Essentials</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
+</body>
+</html>
